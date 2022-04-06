@@ -1,4 +1,6 @@
-﻿namespace Business.Constants
+﻿using System.Runtime.Serialization;
+
+namespace Business.Constants
 {
     public static class Messages
     {
@@ -16,5 +18,6 @@
         public static string UserAlreadyExists = "Bu kullanıcı zaten mevcut";
         public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
         public static string AccessTokenCreated = "Access Token başarıyla oluşturuldu";
+        public static string AuthorizationDenied = "Yetkiniz yok";
     }
 }
