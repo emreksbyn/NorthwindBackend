@@ -5,7 +5,7 @@ namespace Core.Utilities.Security.Hashing
 {
     public class HashingHelper
     {
-        // out keyword' u ile değişen nesne bizim byte[] arraylerimize de aktarılacak
+        //  out keyword' u : Parametreyi gondedigimizde degisen nesne ayni zamanda byte arrayimize aktarilacak
         public static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new HMACSHA512())

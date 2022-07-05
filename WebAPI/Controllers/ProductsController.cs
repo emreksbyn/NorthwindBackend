@@ -62,7 +62,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost(template: "update")]
-        public IActionResult Uodate(Product product)
+        public IActionResult Update(Product product)
         {
             var result = _productService.Update(product);
             if (result.Success)

@@ -9,6 +9,7 @@ namespace DataAccess.Concrete.EntityFramework
     public class EfUserDal : EfEntityRepositoryBase<User, NorthwindContext>, IUserDal
     {
         // Join işlemi yapıyorum
+        // TODO : OperationClaimDto yap
         public List<OperationClaim> GetClaims(User user)
         {
             using (var context = new NorthwindContext())
