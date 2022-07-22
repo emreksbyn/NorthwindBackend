@@ -13,6 +13,7 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Business.Concrete
 {
@@ -52,6 +53,7 @@ namespace Business.Concrete
         [PerformanceAspect(interval:5)]
         public IDataResult<List<Product>> GetList()
         {
+            //Thread.Sleep(5000);
             return new SuccessDataResult<List<Product>>(_productDal.GetList().ToList());
         }
 
