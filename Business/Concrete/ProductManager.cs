@@ -50,7 +50,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Product>(_productDal.Get(filter: p => p.ProductID == productId));
         }
 
-        [PerformanceAspect(interval:5)]
+        [PerformanceAspect(interval: 5)]
         public IDataResult<List<Product>> GetList()
         {
             //Thread.Sleep(5000);
