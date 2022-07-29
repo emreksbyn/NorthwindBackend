@@ -5,7 +5,6 @@ using Core.Utilities.Interceptors;
 using Core.Utilities.Messages;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Core.Aspects.Autofac.Logging
 {

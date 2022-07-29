@@ -62,6 +62,8 @@ namespace WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.ConfigureCustomExceptionMiddleware();
+
             // get, post, delete gibi bütün http isteklerine izin ver dedik.
             app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader());
 
