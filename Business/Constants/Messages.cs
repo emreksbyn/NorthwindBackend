@@ -18,5 +18,6 @@
         public static string AccessTokenCreated = "Access Token başarıyla oluşturuldu";
         public static string AuthorizationDenied = "Yetkiniz yok";
         public static string ProductNameAlreadyExists = "Ürün ismi zaten mevcut";
+        public static string CategoryIsNotEnabled = "Kategori uygun değil.";
     }
 }
