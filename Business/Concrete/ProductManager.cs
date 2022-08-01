@@ -8,12 +8,12 @@ using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
+using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 
 namespace Business.Concrete
 {
@@ -30,8 +30,20 @@ namespace Business.Concrete
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
         {
+            IResult result = BusinessRules.Run(CheckIfProductNameExists(product.ProductName));
+            if (result != null)
+                return result;
             _productDal.Add(product);
             return new SuccessResult(Messages.ProductAdded);
+        }
+
+        private IResult CheckIfProductNameExists(string productName)
+        {
+            if (_productDal.Get(x => x.ProductName == productName) != null)
+            {
+                return new ErrorResult(Messages.ProductNameAlreadyExists);
+            }
+            return new SuccessResult();
         }
 
         public IResult Delete(Product product)
