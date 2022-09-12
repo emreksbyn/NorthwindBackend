@@ -24,7 +24,10 @@ namespace Core.Aspects.Autofac.Validation
         {
             //Reflection yöntemiyle bir instance üretiyoruz.Productvalidator' u new lemiş olduk
             var validator = (IValidator)Activator.CreateInstance(_validatorType);
+
+            // public class ProductValidator : AbstractValidator<Product> asagidaki kod ile buradaki Product a ulasiyoruz.
             var entityType = _validatorType.BaseType.GetGenericArguments()[0];
+
             // invocation methodu temsil eder.
             var entities = invocation.Arguments.Where(t => t.GetType() == entityType);
             foreach (var entity in entities)

@@ -53,7 +53,7 @@ namespace Business.Concrete
 
         public IDataResult<Product> GetById(int productId)
         {
-            return new SuccessDataResult<Product>(_productDal.Get(filter: p => p.ProductID == productId));
+            return new SuccessDataResult<Product>(_productDal.Get(filter: p => p.ProductId == productId));
         }
 
         [PerformanceAspect(interval: 5)]
@@ -68,7 +68,7 @@ namespace Business.Concrete
         [LogAspect(typeof(FileLogger))]
         public IDataResult<List<Product>> GetListByCategory(int categoryId)
         {
-            return new SuccessDataResult<List<Product>>(_productDal.GetList(filter: p => p.CategoryID == categoryId).ToList());
+            return new SuccessDataResult<List<Product>>(_productDal.GetList(filter: p => p.CategoryId == categoryId).ToList());
         }
 
         [TransactionScopeAspect]
