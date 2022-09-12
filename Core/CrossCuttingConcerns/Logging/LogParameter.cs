@@ -2,8 +2,15 @@
 {
     public class LogParameter
     {
-        public string Name { get; set; }
-        public object Value { get; set; }
+        // Product product = ....
+
+        // Product
         public string Type { get; set; }
+
+        // product 
+        public string Name { get; set; }
+
+        // product nesnesinin icinde bulunanlar.
+        public object Value { get; set; }
     }
 }

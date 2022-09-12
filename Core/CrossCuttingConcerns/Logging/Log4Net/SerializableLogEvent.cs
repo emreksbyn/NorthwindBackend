@@ -13,6 +13,7 @@ namespace Core.CrossCuttingConcerns.Logging.Log4Net
             _loggingEvent = loggingEvent;
         }
 
+        //public string Username => _loggingEvent.UserName;
         public object Message => _loggingEvent.MessageObject;
     }
 }

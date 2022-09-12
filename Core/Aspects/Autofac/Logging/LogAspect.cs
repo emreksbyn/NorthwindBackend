@@ -32,9 +32,10 @@ namespace Core.Aspects.Autofac.Logging
             {
                 logParameters.Add(new LogParameter
                 {
+
+                    Type = invocation.Arguments[i].GetType().Name,
                     Name = invocation.GetConcreteMethod().GetParameters()[i].Name,
-                    Value = invocation.Arguments[i],
-                    Type = invocation.Arguments[i].GetType().Name
+                    Value = invocation.Arguments[i]
                 });
             }
             var logDetail = new LogDetail

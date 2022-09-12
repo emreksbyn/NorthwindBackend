@@ -8,12 +8,14 @@ using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
+using Core.DataAccess;
 using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 
 namespace Business.Concrete
 {
@@ -22,11 +24,16 @@ namespace Business.Concrete
         private IProductDal _productDal;
         // Baska bir servisi kullanmamiz gerektiginde Dal' i degil Service' i cagiracagiz.
         private ICategoryService _categoryService;
+        //private readonly IQueryableRepository<Product> _queryable;
 
-        public ProductManager(IProductDal productDal, ICategoryService categoryService)
+        public ProductManager(IProductDal productDal,
+                              ICategoryService categoryService
+                              //,
+                              /*IQueryableRepository<Product> queryable */)
         {
             _productDal = productDal;
             _categoryService = categoryService;
+            //_queryable = queryable;
         }
 
         [ValidationAspect(typeof(ProductValidator), Priority = 1)]
@@ -77,6 +84,21 @@ namespace Business.Concrete
             _productDal.Update(product);
             // _productDal.Add(product);
             return new SuccessResult(Messages.ProductUpdated);
+
+            //using (TransactionScope scope = new TransactionScope())
+            //{
+            //    try
+            //    {
+            //        _productDal.Update(product);
+            //        // _productDal.Add(product);
+            //        return new SuccessResult(Messages.ProductUpdated);
+            //        scope.Complete();
+            //    }
+            //    catch
+            //    {
+            //        scope.Dispose();
+            //    }
+            //}
         }
 
         #region Business Logics
