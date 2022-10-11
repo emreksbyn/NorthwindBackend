@@ -14,6 +14,7 @@ namespace WebAPI.Controllers
         public ProductsController(IProductService productService)
         {
             _productService = productService;
+            //_productService = new ProductManager(new EfProductDal());
         }
 
         [HttpGet(template: "getall")]
@@ -28,10 +29,10 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet(template: "getlistbycategory")]
-        public IActionResult GetListByCategory(int categoryId)
+        [HttpGet(template: "getlistbycategoryid")]
+        public IActionResult GetListByCategoryId(int categoryId)
         {
-            var result = _productService.GetListByCategory(categoryId);
+            var result = _productService.GetListByCategoryId(categoryId);
             if (result.Success)
             {
                 return Ok(result.Data);

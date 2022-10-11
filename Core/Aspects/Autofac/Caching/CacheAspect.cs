@@ -23,10 +23,11 @@ namespace Core.Aspects.Autofac.Caching
             var arguments = invocation.Arguments.ToList();
             var key = $"{methodName}({string.Join(",", arguments.Select(x => x?.ToString() ?? "<Null>"))})";
             // Bu hale getirmiş olduk örn;  -->
-            // Product.GetAll() / ProductManager.GetByCategory(1) / ProductManager.GetXYZ(1, "asd", 67 , 1) ...
+            // Business.Abstract.IProductService.GetAll() / Business.Abstract.IProductService.GetById(1 / 2..) / Business.Abstract.IProductService.GetXYZ(1, "asd", 67 , 1) ...
             if (_cacheManager.IsAdd(key))
             {
                 // Cache' deyse buraya düşecek ve değerler çok daha hızlı bir şekilde gelmiş olacak.
+                // Method un geri donus degerine _cacheManager.Get(key) degerini verdik.
                 invocation.ReturnValue = _cacheManager.Get(key);
                 return;
             }

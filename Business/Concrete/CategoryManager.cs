@@ -44,6 +44,5 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Category>>(_categoryDal.GetList().ToList());
         }
-
     }
 }

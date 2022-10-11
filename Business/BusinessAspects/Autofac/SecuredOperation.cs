@@ -18,6 +18,9 @@ namespace Business.BusinessAspects.Autofac
         {
             this._roles = roles.Split(',');
             _httpContextAccessor = ServiceTool.ServiceProvider.GetService<IHttpContextAccessor>();
+
+            // Aspect oldugu icin Dependency Injection yapmak icin bu yapiya ihtiyacimiz var.
+            //_productService = ServiceTool.ServiceProvider.GetService<IProductService>();
         }
         protected override void OnBefore(IInvocation invocation)
         {

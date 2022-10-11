@@ -10,6 +10,7 @@ namespace Core.CrossCuttingConcerns.Caching.Microsoft
 {
     public class MemoryCacheManager : ICacheManager
     {
+        // Adapter Pattern
         private IMemoryCache _cache;
         public MemoryCacheManager()
         {
@@ -32,6 +33,7 @@ namespace Core.CrossCuttingConcerns.Caching.Microsoft
 
         public bool IsAdd(string key)
         {
+            // out _ -> birsey geri dondurmesini istemedigimizi bildirdik. Sadece var mi yok mu bak.
             return _cache.TryGetValue(key, out _);
         }
 

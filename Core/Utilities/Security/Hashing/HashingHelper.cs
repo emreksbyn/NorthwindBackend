@@ -11,6 +11,7 @@ namespace Core.Utilities.Security.Hashing
             using (var hmac = new HMACSHA512())
             {
                 passwordSalt = hmac.Key;
+                // Encoding.UTF8.GetBytes --> string bir ifadenin byte[] array olarak byte karsiligini alir.
                 passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             }
         }
