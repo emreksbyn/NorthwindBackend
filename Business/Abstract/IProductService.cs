@@ -1,14 +1,17 @@
 ﻿using Core.Utilities.Result;
 using Entities.Concrete;
+using Entities.Dtos;
 using System.Collections.Generic;
 
 namespace Business.Abstract
 {
     public interface IProductService
     {
-        IDataResult<Product> GetById(int productId);
         IDataResult<List<Product>> GetList();
-        IDataResult<List<Product>> GetListByCategory(int categoryId);
+        IDataResult<Product> GetById(int productId);
+        IDataResult<List<Product>> GetListByCategoryId(int categoryId);
+        IDataResult<List<Product>> GetListByUnitPrice(decimal min, decimal max);
+        IDataResult<List<ProductDetailDto>> GetProductDetails();
         IResult Add(Product product);
         IResult Delete(Product product);
         IResult Update(Product product);

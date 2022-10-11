@@ -15,7 +15,7 @@ namespace DataAccess.Concrete.NHibernate
             _nHibernateHelper = nHibernateHelper;
         }
 
-        public List<ProductDetailDto> GetProductDetail()
+        public List<ProductDetailDto> GetProductDetails()
         {
             using (var session = _nHibernateHelper.OpenSession())
             {
