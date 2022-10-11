@@ -5,6 +5,7 @@ using Core.DataAccess.EntityFramework;
 using Core.DataAccess.NHibernate;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using DataAccess.Concrete.EntityFramework.Contexts;
 using DataAccess.Concrete.NHibernate.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Ninject.Modules;
