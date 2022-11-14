@@ -18,13 +18,13 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet(template: "getall")]
-        [Authorize(Roles = "Product.List")]
+        //[Authorize(Roles = "Product.List")]
         public IActionResult GetList()
         {
             var result = _productService.GetList();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest(result.Message);
         }
@@ -35,7 +35,7 @@ namespace WebAPI.Controllers
             var result = _productService.GetListByCategoryId(categoryId);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest(result.Message);
         }
@@ -46,7 +46,7 @@ namespace WebAPI.Controllers
             var result = _productService.GetById(productId);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest(result.Message);
         }

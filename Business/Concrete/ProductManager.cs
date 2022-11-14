@@ -16,6 +16,7 @@ using Entities.Concrete;
 using Entities.Dtos;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Transactions;
 
 namespace Business.Concrete
@@ -70,7 +71,7 @@ namespace Business.Concrete
         [PerformanceAspect(interval: 5)]
         public IDataResult<List<Product>> GetList()
         {
-            //Thread.Sleep(5000);
+            Thread.Sleep(1000);
             return new SuccessDataResult<List<Product>>(_productDal.GetList().ToList());
         }
 
@@ -82,7 +83,6 @@ namespace Business.Concrete
             var products = _productDal.GetList(filter: p => p.CategoryId == categoryId).ToList();
             return new SuccessDataResult<List<Product>>(products);
         }
-
 
         public IDataResult<List<Product>> GetListByUnitPrice(decimal min, decimal max)
         {
@@ -118,8 +118,6 @@ namespace Business.Concrete
             //    }
             //}
         }
-
-
 
         #region Business Logics
         private IResult CheckIfProductNameExists(string productName)

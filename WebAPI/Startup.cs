@@ -30,8 +30,7 @@ namespace WebAPI
             services.AddCors(options =>
             {
                 // localhost:3000 ' e izin ver dedik. 3000' i random verdik.
-                options.AddPolicy("AllowOrigin",
-                                    builder => builder.WithOrigins("http://localhost:3000"));
+                options.AddPolicy("AllowOrigin", builder => builder.WithOrigins("http://localhost:4200"));
             });
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
@@ -116,7 +115,7 @@ namespace WebAPI
             app.ConfigureCustomExceptionMiddleware();
 
             // get, post, delete gibi bütün http isteklerine izin ver dedik.
-            app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader());
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
             app.UseRouting();
 

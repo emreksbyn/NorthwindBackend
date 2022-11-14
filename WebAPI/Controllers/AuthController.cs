@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
 using Entities.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using ServiceReference1;
+using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
@@ -9,6 +11,7 @@ namespace WebAPI.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+        CreatePasswordServiceClient _createPasswordServiceClient = new CreatePasswordServiceClient();
 
         public AuthController(IAuthService authService)
         {
@@ -46,6 +49,13 @@ namespace WebAPI.Controllers
                 return Ok(result.Data);
             }
             return BadRequest(result.Message);
+        }
+
+        [HttpGet("createpassword")]
+        public IActionResult CreatePassword()
+        {
+            Task<string> password = _createPasswordServiceClient.GenerateStringPinAsync();
+            return Ok(password.Result);
         }
     }
 }

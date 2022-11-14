@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{B420B944-5B62-4A31-9F38-F94A0F296A1C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tetst", "Tetst", "{CD60D63E-9D81-43C6-9CD7-DD59A5DB0BEB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CD60D63E-9D81-43C6-9CD7-DD59A5DB0BEB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business.Tests", "Tests\Business.Tests\Business.Tests.csproj", "{81879620-928F-45E3-87B9-7559D4A671A3}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcWebUI", "MvcWebUI\MvcWebUI.csproj", "{5E58B0F3-6FEF-4D7F-A43A-F777AF5851DD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcWebUI.Tests", "Tests\MvcWebUI.Tests\MvcWebUI.Tests.csproj", "{B2411373-B533-4E75-83F7-C7D9CF7F0B77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{63AB7AD9-8445-433A-955A-491ACC3C0152}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{B2411373-B533-4E75-83F7-C7D9CF7F0B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2411373-B533-4E75-83F7-C7D9CF7F0B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2411373-B533-4E75-83F7-C7D9CF7F0B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63AB7AD9-8445-433A-955A-491ACC3C0152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63AB7AD9-8445-433A-955A-491ACC3C0152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63AB7AD9-8445-433A-955A-491ACC3C0152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63AB7AD9-8445-433A-955A-491ACC3C0152}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

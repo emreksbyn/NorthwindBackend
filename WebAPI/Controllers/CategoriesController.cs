@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
             var result = _categoryService.GetList();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest(result.Message);
         }
@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
             var result = _categoryService.GetById(categoryId);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest(result.Message);
         }
