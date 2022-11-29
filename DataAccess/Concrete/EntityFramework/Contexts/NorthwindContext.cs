@@ -7,18 +7,16 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 {
     public class NorthwindContext : DbContext
     {
-        #region Ctor
-        public NorthwindContext()
-        {
-        }
-        public NorthwindContext(DbContextOptions<NorthwindContext> options) : base(options)
-        {
-        }
-        #endregion
+        public NorthwindContext() { }
+        public NorthwindContext(DbContextOptions<NorthwindContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: @"Server=.;Database=Northwind; Integrated Security=True");
+            if (!optionsBuilder.IsConfigured)
+            {
+                string connectionString = ConfigureConnectionString.ConnectionString();
+                optionsBuilder.UseSqlServer(connectionString);
+            }
         }
 
         public DbSet<Product> Products { get; set; }

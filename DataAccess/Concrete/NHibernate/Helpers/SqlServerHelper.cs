@@ -10,9 +10,11 @@ namespace DataAccess.Concrete.NHibernate.Helpers
     {
         protected override ISessionFactory InitializeFactory()
         {
+            string connectionString = ConfigureConnectionString.ConnectionString();
+
             return Fluently.Configure().Database(MsSqlConfiguration.MsSql2012
                 .ShowSql()
-                .ConnectionString(@"Server = (localdb)\MSSQLLocalDB; Database = Northwind; Integrated Security = True"))
+                .ConnectionString(connectionString))
                 .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.GetExecutingAssembly()))
                 .BuildSessionFactory();
         }
