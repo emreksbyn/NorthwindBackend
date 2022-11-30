@@ -1,6 +1,8 @@
-﻿namespace Entities.Dtos
+﻿using Core.Entities;
+
+namespace Entities.Dtos
 {
-    public class ProductDetailDto
+    public class ProductDetailDto : IDto
     {
         public int ProductId { get; set; }
         public virtual string ProductName { get; set; }

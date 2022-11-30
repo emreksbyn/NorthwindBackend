@@ -2,6 +2,10 @@
 {
     public static class Messages
     {
+        public static string AddingSuccessful = "Başarıyla eklendi";
+        public static string UpdatingSuccessful = "Başarıyla güncellendi";
+        public static string DeletingSuccessful = "Başarıyla silindi";
+
         public static string ProductAdded = "Ürün başarıyla eklendi";
         public static string ProductDeleted = "Ürün başarıyla silindi";
         public static string ProductUpdated = "Ürün başarıyla güncellendi";
