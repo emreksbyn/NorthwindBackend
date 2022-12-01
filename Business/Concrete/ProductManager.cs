@@ -48,18 +48,18 @@ namespace Business.Concrete
             if (result != null)
                 return result;
             _productDal.Add(product);
-            return new SuccessResult(Messages.ProductAdded);
+            return new SuccessResult(Messages.ProductAdded.SendMessages());
         }
 
         public IResult Delete(Product product)
         {
             _productDal.Delete(product);
-            return new SuccessResult(Messages.ProductDeleted);
+            return new SuccessResult(Messages.ProductDeleted.SendMessages());
         }
         public IResult Update(Product product)
         {
             _productDal.Update(product);
-            return new SuccessResult(Messages.ProductUpdated);
+            return new SuccessResult(Messages.ProductUpdated.SendMessages());
         }
 
         [CacheAspect(duration: 10)]
@@ -101,7 +101,7 @@ namespace Business.Concrete
         {
             _productDal.Update(product);
             // _productDal.Add(product);
-            return new SuccessResult(Messages.ProductUpdated);
+            return new SuccessResult(Messages.ProductUpdated.SendMessages());
 
             //using (TransactionScope scope = new TransactionScope())
             //{
@@ -124,7 +124,7 @@ namespace Business.Concrete
         {
             if (_productDal.Get(x => x.ProductName == productName) != null)
             {
-                return new ErrorResult(Messages.ProductNameAlreadyExists);
+                return new ErrorResult(Messages.ProductNameAlreadyExists.SendMessages());
             }
             return new SuccessResult();
         }
@@ -134,7 +134,7 @@ namespace Business.Concrete
             var result = _categoryService.GetList();
             if (result.Data.Count < 10)
             {
-                return new ErrorResult(Messages.CategoryIsNotEnabled);
+                return new ErrorResult(Messages.CategoryIsNotEnabled.SendMessages());
             }
             return new SuccessResult();
         }
@@ -144,7 +144,7 @@ namespace Business.Concrete
             var categoriesCount = _categoryService.GetList().Data.Count;
             if (categoriesCount > 15)
             {
-                return new ErrorResult(Messages.CategoryLimitExceeded);
+                return new ErrorResult(Messages.CategoryLimitExceeded.SendMessages());
             }
             return new SuccessResult();
         }

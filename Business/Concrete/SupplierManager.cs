@@ -26,21 +26,21 @@ namespace Business.Concrete
         {
             Supplier supplier = _mapper.Map<Supplier>(createSupplierDto);
             _supplierDal.Add(supplier);
-            return new SuccessResult(Messages.AddingSuccessful);
+            return new SuccessResult(Messages.AddingSuccessful.SendMessages());
         }
 
         public IResult Delete(UpdateSupplierDto deleteSupplierDto)
         {
             Supplier supplier = _mapper.Map<Supplier>(deleteSupplierDto);
             _supplierDal.Delete(supplier);
-            return new SuccessResult(Messages.DeletingSuccessful);
+            return new SuccessResult(Messages.DeletingSuccessful.SendMessages());
         }
 
         public IResult Update(UpdateSupplierDto updateSupplierDto)
         {
             Supplier supplier = _mapper.Map<Supplier>(updateSupplierDto);
             _supplierDal.Update(supplier);
-            return new SuccessResult(Messages.UpdatingSuccessful);
+            return new SuccessResult(Messages.UpdatingSuccessful.SendMessages());
         }
 
         public IDataResult<SupplierViewModel> GetById(int supplierId)

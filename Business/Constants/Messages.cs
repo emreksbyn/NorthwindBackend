@@ -1,29 +1,64 @@
-﻿namespace Business.Constants
+﻿using System.ComponentModel;
+
+namespace Business.Constants
 {
-    public static class Messages
+    public enum Messages
     {
-        public static string AddingSuccessful = "Başarıyla eklendi";
-        public static string UpdatingSuccessful = "Başarıyla güncellendi";
-        public static string DeletingSuccessful = "Başarıyla silindi";
+        [Description("Başarıyla eklendi")]
+        AddingSuccessful = 1,
 
-        public static string ProductAdded = "Ürün başarıyla eklendi";
-        public static string ProductDeleted = "Ürün başarıyla silindi";
-        public static string ProductUpdated = "Ürün başarıyla güncellendi";
+        [Description("Başarıyla güncellendi")]
+        UpdatingSuccessful = 2,
 
-        public static string CategoryAdded = "Kategori başarıyla eklendi";
-        public static string CategoryDeleted = "Kategori başarıyla silindi";
-        public static string CategoryUpdated = "Kategori başarıyla güncellendi";
+        [Description("Başarıyla silindi")]
+        DeletingSuccessful = 3,
 
-        public static string UserNotFound = "Kullanıcı bulunamadı";
-        public static string PasswordError = "Şifre hatalı";
-        public static string SuccessfulLogin = "Sisteme giriş başarılı";
-        public static string UserAlreadyExists = "Bu kullanıcı zaten mevcut";
-        public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
-        public static string AccessTokenCreated = "Access Token başarıyla oluşturuldu";
-        public static string AuthorizationDenied = "Yetkiniz yok";
+        [Description("Ürün başarıyla eklendi")]
+        ProductAdded = 4,
 
-        public static string ProductNameAlreadyExists = "Ürün ismi zaten mevcut";
-        public static string CategoryIsNotEnabled = "Kategori uygun değil.";
-        public static string CategoryLimitExceeded = "Kategori limiti asildi.";
+        [Description("Ürün başarıyla silindi")]
+        ProductDeleted = 5,
+
+        [Description("Ürün başarıyla güncellendi")]
+        ProductUpdated = 6,
+
+        [Description("Kategori başarıyla eklendi")]
+        CategoryAdded = 7,
+
+        [Description("Kategori başarıyla silindi")]
+        CategoryDeleted = 8,
+
+        [Description("Kategori başarıyla güncellendi")]
+        CategoryUpdated = 9,
+
+        [Description("Kullanıcı bulunamadı")]
+        UserNotFound = 10,
+
+        [Description("Şifre hatalı")]
+        PasswordError = 11,
+
+        [Description("Sisteme giriş başarılı")]
+        SuccessfulLogin = 12,
+
+        [Description("Bu kullanıcı zaten mevcut")]
+        UserAlreadyExists = 13,
+
+        [Description("Kullanıcı başarıyla kaydedildi")]
+        UserRegistered = 14,
+
+        [Description("Access Token başarıyla oluşturuldu")]
+        AccessTokenCreated = 15,
+
+        [Description("Yetkiniz yok")]
+        AuthorizationDenied = 16,
+
+        [Description("Ürün ismi zaten mevcut")]
+        ProductNameAlreadyExists = 17,
+
+        [Description("Kategori uygun değil.")]
+        CategoryIsNotEnabled = 18,
+
+        [Description("Kategori limiti asildi.")]
+        CategoryLimitExceeded = 19
     }
 }

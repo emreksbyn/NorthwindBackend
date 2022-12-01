@@ -1,11 +1,13 @@
-﻿using System.Runtime.Serialization;
+﻿using System.ComponentModel;
 
 namespace Core.Utilities.Messages
 {
-    public static class AspectMessages
+    public enum AspectMessages
     {
-        public static string WrongValidationType = "Wrong Validation Type";
+        [Description("Wrong Validation Type")]
+        WrongValidationType =1,
 
-        public static string WrongLoggerType = "Wrong Logger Type";
+        [Description("Wrong Logger Type")]
+        WrongLoggerType = 2
     }
 }
