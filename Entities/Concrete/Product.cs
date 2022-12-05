@@ -9,5 +9,6 @@ namespace Entities.Concrete
         public virtual int CategoryId{ get; set; }
         public virtual string QuantityPerUnit { get; set; }
         public virtual decimal UnitPrice { get; set; }
+        public virtual short UnitsInStock { get; set; }
     }
 }
