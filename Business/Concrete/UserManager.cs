@@ -22,6 +22,7 @@ namespace Business.Concrete
 
         public IDataResult<User> GetByMail(string email)
         {
+            // Duzelt
             var user = _userDal.Get(u => u.Email == email);
             if (user == null)
                 return null;

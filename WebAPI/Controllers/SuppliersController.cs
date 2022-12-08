@@ -20,7 +20,7 @@ namespace WebAPI.Controllers
         {
             var list = _supplierService.GetList();
             if (list.Success) return Ok(list);
-            return BadRequest(list.Message);
+            return BadRequest(list);
         }
 
         [HttpGet("getbyid")]
@@ -28,31 +28,31 @@ namespace WebAPI.Controllers
         {
             var supplier = _supplierService.GetById(supplierId);
             if (supplier.Success) return Ok(supplier);
-            return BadRequest(supplier.Message);
+            return BadRequest(supplier);
         }
 
         [HttpPost("add")]
         public IActionResult Add(CreateSupplierDto createSupplierDto)
         {
             var result = _supplierService.Add(createSupplierDto);
-            if (result.Success) return Ok(result.Message);
-            return BadRequest(result.Message);
+            if (result.Success) return Ok(result);
+            return BadRequest(result);
         }
 
         [HttpPost("update")]
         public IActionResult Update(UpdateSupplierDto updateSupplierDto)
         {
             var result = _supplierService.Update(updateSupplierDto);
-            if (result.Success) return Ok(result.Message);
-            return BadRequest(result.Message);
+            if (result.Success) return Ok(result);
+            return BadRequest(result);
         }
 
         [HttpPost("delete")]
         public IActionResult Delete(UpdateSupplierDto updateSupplierDto)
         {
             var result = _supplierService.Delete(updateSupplierDto);
-            if (result.Success) return Ok(result.Message);
-            return BadRequest(result.Message);
+            if (result.Success) return Ok(result);
+            return BadRequest(result);
         }
     }
 }

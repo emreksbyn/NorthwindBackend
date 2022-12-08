@@ -63,7 +63,8 @@ namespace WebAPI
                     Description = "JWT Authorization header using Bearer scheme",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.Http,
+                    Type = SecuritySchemeType.ApiKey,
+                    //Type = SecuritySchemeType.Http,
                     Scheme = "Bearer"
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -121,6 +122,7 @@ namespace WebAPI
 
             // Giriþ 
             app.UseAuthentication();
+
             // Yetkilendirme
             app.UseAuthorization();
 

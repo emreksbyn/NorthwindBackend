@@ -23,6 +23,7 @@ namespace Business.Concrete
 {
     public class ProductManager : IProductService
     {
+        #region Ctor
         private IProductDal _productDal;
         // Baska bir servisi kullanmamiz gerektiginde Dal' i degil Service' i cagiracagiz.
         private ICategoryService _categoryService;
@@ -37,7 +38,9 @@ namespace Business.Concrete
             _categoryService = categoryService;
             //_queryable = queryable;
         }
+        #endregion
 
+        [SecuredOperation("Product.Add,Admin")]
         [ValidationAspect(typeof(ProductValidator), Priority = 1)]
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
@@ -68,6 +71,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Product>(_productDal.Get(filter: p => p.ProductId == productId));
         }
 
+        //[SecuredOperation("Product.List,Admin")]
         [PerformanceAspect(interval: 5)]
         public IDataResult<List<Product>> GetList()
         {
@@ -132,7 +136,7 @@ namespace Business.Concrete
         private IResult CheckIfCategoryIsEnabled()
         {
             var result = _categoryService.GetList();
-            if (result.Data.Count < 10)
+            if (result.Data.Count > 15)
             {
                 return new ErrorResult(Messages.CategoryIsNotEnabled.SendMessages());
             }

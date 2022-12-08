@@ -15,7 +15,7 @@ namespace WebAPI.Controllers
             _categoryService = categoryService;
         }
 
-        [HttpGet(template:"getall")]
+        [HttpGet(template: "getall")]
         public IActionResult GetList()
         {
             var result = _categoryService.GetList();
@@ -23,10 +23,10 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
-        [HttpGet(template:"getbyid")]
+        [HttpGet(template: "getbyid")]
         public IActionResult GetById(int categoryId)
         {
             var result = _categoryService.GetById(categoryId);
@@ -34,7 +34,7 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
         [HttpPost(template: "add")]
@@ -43,9 +43,9 @@ namespace WebAPI.Controllers
             var result = _categoryService.Add(category);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
         [HttpPost(template: "update")]
@@ -54,9 +54,9 @@ namespace WebAPI.Controllers
             var result = _categoryService.Update(category);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
         [HttpPost(template: "delete")]
@@ -65,9 +65,9 @@ namespace WebAPI.Controllers
             var result = _categoryService.Delete(category);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
     }
 }
